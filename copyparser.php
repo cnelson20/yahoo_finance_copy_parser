@@ -9,7 +9,7 @@ $lines = explode((strstr($file_contents, "\r\n") !== false) ? "\r\n" : "\n", $fi
 if (strlen($lines[count($lines) - 1]) == 0) { array_pop($lines); }
 
 for ($i = 0; $i < count($lines);) {
-    $output_csv .= $lines[$i];
+    $output_csv .= str_replace(",", ".", $lines[$i]);
     $i++;
 
     while ($i < count($lines) && !(ord($lines[$i]) >= ord('A') && ord($lines[$i]) <= ord('Z'))) {
